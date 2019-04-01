@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.m520it.sdcardreceiver"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.m520it.sdcardreceiver.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.m520it.sdcardreceiver.SDcardReceiver">
+            <intent-filter>
+                <!-- MEDIA_MOUNTED SD安装的事件动作 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <!-- MEDIA_MOUNTED SD卸载的事件动作 -->
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <!-- sd卡的操作就是就是一个文件的操作 -->
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
