@@ -1,0 +1,1 @@
+include ':app', ':handlerleak', ':staticinstance', ':contextleak', ':fragmentleak', ':traceviewdemo'
